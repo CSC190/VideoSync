@@ -1,0 +1,64 @@
+/**
+ * ****************************************************************
+ * File: 			CommandFrameForward.java
+ * Date Created:  	June 5, 2013
+ * Programmer:		Dale Reed
+ * 
+ * Purpose:			To handle an action request from the play back
+ * 					view to advance the video and graphs forward
+ * 					by one frame based on the video timings
+ * 
+ * ****************************************************************
+ */
+package commands.playback;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+
+import models.DataModel;
+
+public class CommandFrameForward extends AbstractAction
+{
+	private static final long serialVersionUID = 1L;
+
+
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	// -- Command Frame Forward Variable Declarations
+	
+	/**
+	 * Sets the references to the DataModel
+	 * @param dm
+	 */
+	private DataModel dm;
+	
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	// -- Command Frame Forward Methods
+
+	/**
+	 * Sets the references to the DataModel
+	 * @param dm
+	 */
+	public void setTarget(DataModel dm)
+	{
+		// Set the data model to the one passed
+		this.dm = dm;
+	}
+
+
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	// -- Command Frame Forward Action Methods
+	
+	/**
+	 * Called when the user chooses to frame advance
+	 */
+	public void actionPerformed(ActionEvent arg0) 
+	{
+		// Notify the data model to advance the videos and graphs by one frame.
+		this.dm.advanceFrame();
+	}
+}
